@@ -46,7 +46,8 @@ SPRING_PROFILES_ACTIVE=prod
    - **Environment**: `Docker`
    - **Region**: Choose closest to your users
    - **Branch**: `main` (or your deployment branch)
-   - **Dockerfile Path**: `Quiz-App/Dockerfile`
+   - **Root Directory**: `backend`
+   - **Dockerfile Path**: `Dockerfile`
 
 ### Step 3: Configure Environment Variables
 1. In the Render dashboard, go to your service

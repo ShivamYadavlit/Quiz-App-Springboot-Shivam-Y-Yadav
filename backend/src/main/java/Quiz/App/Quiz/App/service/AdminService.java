@@ -192,7 +192,7 @@ public class AdminService {
     
     // User Activity Reports
     public List<Map<String, Object>> getUserActivityReport() {
-        List<Map> results = mongoAggregationService.findUserActivityReport();
+        List<Map<String, Object>> results = mongoAggregationService.findUserActivityReport();
         return results.stream().map(result -> {
             Map<String, Object> activity = new HashMap<>();
             activity.put("username", result.get("userUsername"));
@@ -206,7 +206,7 @@ public class AdminService {
     
     // Quiz Performance Reports
     public List<Map<String, Object>> getQuizPerformanceReport() {
-        List<Map> results = mongoAggregationService.findQuizPerformanceReport();
+        List<Map<String, Object>> results = mongoAggregationService.findQuizPerformanceReport();
         return results.stream().map(result -> {
             Map<String, Object> performance = new HashMap<>();
             performance.put("quizTitle", result.get("quizTitle"));
