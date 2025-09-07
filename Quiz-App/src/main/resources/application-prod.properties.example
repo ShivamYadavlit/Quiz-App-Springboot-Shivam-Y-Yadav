@@ -1,0 +1,72 @@
+# ============================================
+# Quiz Application Production Configuration Template
+# ============================================
+# Copy this file to application-prod.properties and configure with environment variables
+
+# Application Name
+spring.application.name=Quiz-App
+
+# Active Profile
+spring.profiles.active=prod
+
+# Server Configuration
+server.port=${PORT:8080}
+
+# ============================================
+# Database Configuration (MongoDB Atlas)
+# ============================================
+# Use environment variables for production
+spring.data.mongodb.uri=${MONGODB_URI:your-mongodb-atlas-connection-string}
+spring.data.mongodb.database=${MONGODB_DATABASE:quiz_app_db}
+spring.data.mongodb.auto-index-creation=true
+
+# ============================================
+# JWT Security Configuration
+# ============================================
+# Use strong environment variables in production
+jwt.secret=${JWT_SECRET:your-strong-jwt-secret-key-256-bits}
+jwt.expiration=${JWT_EXPIRATION:86400000}
+
+# ============================================
+# CORS Configuration
+# ============================================
+# Allow your production frontend URLs
+cors.allowed.origins=${CORS_ALLOWED_ORIGINS:https://your-frontend-domain.com}
+
+# ============================================
+# Admin Configuration
+# ============================================
+# Use secure environment variable
+admin.secret.key=${ADMIN_SECRET_KEY:your-secure-admin-secret}
+
+# ============================================
+# Logging Configuration
+# ============================================
+logging.level.com.Quiz.App=INFO
+logging.level.org.springframework.security=INFO
+logging.level.org.springframework.web=INFO
+
+# ============================================
+# Production Optimizations
+# ============================================
+# Disable banner for production
+spring.main.banner-mode=off
+
+# Connection pool settings for MongoDB
+spring.data.mongodb.uri=${MONGODB_URI}?maxPoolSize=50&minPoolSize=5&maxIdleTimeMS=30000
+
+# Management endpoints (for health checks)
+management.endpoints.web.exposure.include=health,info
+management.endpoint.health.show-details=when-authorized
+
+# ============================================
+# Environment Variable Reference
+# ============================================
+# Set these environment variables in your deployment platform:
+# MONGODB_URI - Your MongoDB Atlas connection string
+# MONGODB_DATABASE - Database name (default: quiz_app_db)
+# JWT_SECRET - Strong secret key for JWT (256+ bits)
+# JWT_EXPIRATION - Token expiration time in milliseconds
+# CORS_ALLOWED_ORIGINS - Comma-separated list of allowed origins
+# ADMIN_SECRET_KEY - Secret key for admin registration
+# PORT - Server port (default: 8080)

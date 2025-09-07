@@ -1,7 +1,7 @@
 # ============================================
-# Quiz Application Configuration Example
+# Quiz Application Configuration Template
 # ============================================
-# Copy this file to application.properties and modify values as needed
+# Copy this file to application.properties and fill in your values
 
 # Application Name
 spring.application.name=Quiz-App
@@ -9,56 +9,43 @@ spring.application.name=Quiz-App
 # ============================================
 # Database Configuration (MongoDB)
 # ============================================
-# MongoDB connection URI
+# For local development, use MongoDB Atlas or local MongoDB
 spring.data.mongodb.uri=mongodb://localhost:27017/quiz_app_db
-# MongoDB database name
+# OR for MongoDB Atlas:
+# spring.data.mongodb.uri=mongodb+srv://username:password@cluster.mongodb.net/?retryWrites=true&w=majority&appName=YourApp
 spring.data.mongodb.database=quiz_app_db
-# Automatically create indexes
 spring.data.mongodb.auto-index-creation=true
-
-# For MongoDB Atlas (Cloud):
-# spring.data.mongodb.uri=mongodb+srv://username:password@cluster.mongodb.net/quiz_app_db?retryWrites=true&w=majority
 
 # ============================================
 # JWT Security Configuration
 # ============================================
-# JWT Secret Key - IMPORTANT: Change this in production!
-# Should be at least 32 characters long for security
-jwt.secret=CHANGE_THIS_SECRET_KEY_IN_PRODUCTION_12345678901234567890123456789012345678901234567890
-
-# JWT Token expiration time in milliseconds
-# 86400000 = 24 hours
-# 3600000 = 1 hour
-# 604800000 = 7 days
+# Generate a strong secret key (at least 256 bits / 32 characters)
+jwt.secret=your-256-bit-secret-key-here-change-this-in-production
+# JWT Token expiration time in milliseconds (24 hours = 86400000ms)
 jwt.expiration=86400000
 
 # ============================================
 # CORS Configuration
 # ============================================
-# Allowed origins for CORS (frontend URL)
+# Add your frontend URLs here
 cors.allowed.origins=http://localhost:3000
-
-# For production, specify your actual domain:
-# cors.allowed.origins=https://yourdomain.com
 
 # ============================================
 # Admin Configuration
 # ============================================
-# Secret key required for admin registration
-# IMPORTANT: Change this in production!
-admin.secret.key=CHANGE_THIS_ADMIN_SECRET_KEY_IN_PRODUCTION_2024!
+# Change this secret key for admin registration
+admin.secret.key=your-admin-secret-key-here
 
 # ============================================
-# Optional: Server Configuration
+# Server Configuration (Optional)
 # ============================================
-# Uncomment to change default port (8080)
-# server.port=8081
+# server.port=8080
+# server.servlet.context-path=/api
 
 # ============================================
-# Optional: Logging Configuration
+# Logging Configuration (Optional)
 # ============================================
-# Uncomment to enable debug logging
-# logging.level.Quiz.App=DEBUG
+# logging.level.com.Quiz.App=DEBUG
 # logging.level.org.springframework.security=DEBUG
 
 # ============================================

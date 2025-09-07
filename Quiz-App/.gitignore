@@ -32,6 +32,28 @@ build/
 ### VS Code ###
 .vscode/
 
-### Application Properties ###
+### Application Properties & Configuration ###
+# Exclude all environment-specific configuration files
 application.properties
 application-prod.properties
+application-dev.properties
+application-test.properties
+application-local.properties
+
+# Environment variables files
+.env
+.env.local
+.env.production
+.env.development
+
+# Database configuration
+db.properties
+
+# Security keys and secrets
+*.key
+*.pem
+*.p12
+*.jks
+
+# Docker environment files
+docker-compose.override.yml
