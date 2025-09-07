@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App Leaderboard Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .leaderboard { margin: 20px 0; }
+        .entry { padding: 10px; border: 1px solid #ddd; margin: 5px 0; border-radius: 5px; }
+        .rank { font-weight: bold; color: #007bff; }
+        .username { font-weight: bold; }
+        .score { color: #28a745; }
+        button { padding: 10px 20px; margin: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Quiz App Leaderboard Test</h1>
+    
+    <div>
+        <button onclick="loadGlobalLeaderboard()">Load Global Leaderboard</button>
+        <button onclick="loadQuizLeaderboard()">Load Quiz 2 Leaderboard</button>
+    </div>
+    
+    <div id="leaderboard" class="leaderboard"></div>
+    
+    <script>
+        async function loadGlobalLeaderboard() {
+            try {
+                const response = await fetch('http://localhost:8080/leaderboard/global');
+                const data = await response.json();
+                displayLeaderboard(data, 'Global Leaderboard');
+            } catch (error) {
+                console.error('Error loading global leaderboard:', error);
+                document.getElementById('leaderboard').innerHTML = '<p>Error loading leaderboard</p>';
+            }
+        }
+        
+        async function loadQuizLeaderboard() {
+            try {
+                const response = await fetch('http://localhost:8080/leaderboard/quiz/2');
+                const data = await response.json();
+                displayLeaderboard(data, 'Quiz 2 Leaderboard');
+            } catch (error) {
+                console.error('Error loading quiz leaderboard:', error);
+                document.getElementById('leaderboard').innerHTML = '<p>Error loading leaderboard</p>';
+            }
+        }
+        
+        function displayLeaderboard(data, title) {
+            const container = document.getElementById('leaderboard');
+            let html = `<h2>${title}</h2>`;
+            
+            data.forEach(entry => {
+                html += `
+                    <div class="entry">
+                        <span class="rank">Rank ${entry.rank}:</span>
+                        <span class="username">${entry.username}</span> - 
+                        <span class="score">${entry.score}/${entry.totalQuestions} (${entry.percentage}%)</span>
+                        <br>
+                        <small>Quiz: ${entry.quizTitle} | Time: ${entry.timeTaken}s | Completed: ${entry.completedAt}</small>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        // Load global leaderboard by default
+        window.onload = function() {
+            loadGlobalLeaderboard();
+        };
+    </script>
+</body>
+</html>

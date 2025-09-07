@@ -1,0 +1,84 @@
+# ============================================
+# Quiz Application Configuration Example
+# ============================================
+# Copy this file to application.properties and modify values as needed
+
+# Application Name
+spring.application.name=Quiz-App
+
+# ============================================
+# Database Configuration (MongoDB)
+# ============================================
+# MongoDB connection URI
+spring.data.mongodb.uri=mongodb://localhost:27017/quiz_app_db
+# MongoDB database name
+spring.data.mongodb.database=quiz_app_db
+# Automatically create indexes
+spring.data.mongodb.auto-index-creation=true
+
+# For MongoDB Atlas (Cloud):
+# spring.data.mongodb.uri=mongodb+srv://username:password@cluster.mongodb.net/quiz_app_db?retryWrites=true&w=majority
+
+# ============================================
+# JWT Security Configuration
+# ============================================
+# JWT Secret Key - IMPORTANT: Change this in production!
+# Should be at least 32 characters long for security
+jwt.secret=CHANGE_THIS_SECRET_KEY_IN_PRODUCTION_12345678901234567890123456789012345678901234567890
+
+# JWT Token expiration time in milliseconds
+# 86400000 = 24 hours
+# 3600000 = 1 hour
+# 604800000 = 7 days
+jwt.expiration=86400000
+
+# ============================================
+# CORS Configuration
+# ============================================
+# Allowed origins for CORS (frontend URL)
+cors.allowed.origins=http://localhost:3000
+
+# For production, specify your actual domain:
+# cors.allowed.origins=https://yourdomain.com
+
+# ============================================
+# Admin Configuration
+# ============================================
+# Secret key required for admin registration
+# IMPORTANT: Change this in production!
+admin.secret.key=CHANGE_THIS_ADMIN_SECRET_KEY_IN_PRODUCTION_2024!
+
+# ============================================
+# Optional: Server Configuration
+# ============================================
+# Uncomment to change default port (8080)
+# server.port=8081
+
+# ============================================
+# Optional: Logging Configuration
+# ============================================
+# Uncomment to enable debug logging
+# logging.level.Quiz.App=DEBUG
+# logging.level.org.springframework.security=DEBUG
+
+# ============================================
+# Environment-Specific Notes:
+# ============================================
+# Development:
+# - Use localhost URLs
+# - Keep default MongoDB settings
+# - JWT secret can be simple for testing
+#
+# Production:
+# - Use production MongoDB URI (Atlas or hosted)
+# - Generate strong JWT secret (64+ chars)
+# - Set proper CORS origins
+# - Use environment variables for secrets
+# - Example: jwt.secret=${JWT_SECRET:defaultsecret}
+#
+# Security Best Practices:
+# - Never commit real secrets to version control
+# - Use environment variables in production
+# - Rotate secrets regularly
+# - Use HTTPS in production
+# ============================================
