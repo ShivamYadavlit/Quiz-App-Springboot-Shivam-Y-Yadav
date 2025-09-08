@@ -62,6 +62,8 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authz -> authz
+                .requestMatchers("/").permitAll() // Allow root path
+                .requestMatchers("/actuator/**").permitAll() // Allow actuator endpoints
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/admin/auth/**").permitAll() // Allow admin auth endpoints
                 .requestMatchers("/api/admin/register").permitAll() // Allow admin registration
