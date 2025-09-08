@@ -195,7 +195,7 @@ const Dashboard = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
           <StatCard 
             title="Total Attempts" 
             value={stats.totalAttempts} 
@@ -233,7 +233,7 @@ const Dashboard = () => {
               <i className="fas fa-trophy text-yellow-500 mr-3"></i>
               Your Achievements
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
               {stats.achievements.map((achievement, index) => (
                 <AchievementBadge key={achievement.name} achievement={achievement} index={index} />
               ))}
@@ -242,7 +242,7 @@ const Dashboard = () => {
         )}
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
           {/* Available Quizzes */}
           <div className="lg:col-span-2">
@@ -381,7 +381,7 @@ const Dashboard = () => {
         
         {/* Quick Actions */}
         <div className="mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-6 text-white">
-          <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="mb-4 md:mb-0">
               <h3 className="text-xl font-bold">Ready for your next challenge?</h3>
               <p className="text-blue-100">Discover new quizzes and improve your knowledge!</p>

@@ -1,0 +1,196 @@
+/* Responsive Utilities for Mobile Devices */
+/* Specifically optimized for OnePlus 9 and similar devices */
+
+/* OnePlus 9 specific media query */
+@media (max-width: 412px) {
+  /* Adjust font sizes for better readability */
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+  }
+  
+  /* Adjust padding and margins */
+  .p-4 {
+    padding: 0.75rem;
+  }
+  
+  .p-6 {
+    padding: 1rem;
+  }
+  
+  .p-8 {
+    padding: 1.25rem;
+  }
+  
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .py-8 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .m-4 {
+    margin: 1rem;
+  }
+  
+  .m-6 {
+    margin: 1rem;
+  }
+  
+  .m-8 {
+    margin: 1.25rem;
+  }
+  
+  /* Adjust grid layouts */
+  .grid-cols-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-cols-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .grid-cols-5 {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  /* Adjust button sizes */
+  .btn-responsive {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Adjust card sizes */
+  .card-responsive {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  /* Adjust navigation elements */
+  .nav-item {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Adjust form elements */
+  .form-control-responsive {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Adjust quiz elements */
+  .quiz-question {
+    padding: 1rem;
+  }
+  
+  .quiz-option {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Adjust spacing */
+  .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1rem;
+  }
+  
+  .gap-6 {
+    gap: 1rem;
+  }
+  
+  .gap-8 {
+    gap: 1rem;
+  }
+}
+
+/* General mobile improvements */
+@media (max-width: 768px) {
+  /* Ensure proper scrolling */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent text selection issues */
+  .no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Optimize for touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Adjust modal sizes */
+  .modal-mobile {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+  
+  /* Adjust dropdown menus */
+  .dropdown-mobile {
+    min-width: 200px;
+  }
+  
+  /* Adjust table displays */
+  .table-mobile {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Adjust image sizes */
+  .img-mobile {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Adjust icon sizes */
+  .icon-mobile {
+    font-size: 1.25rem;
+  }
+  
+  /* Adjust input fields */
+  .input-mobile {
+    min-height: 44px;
+  }
+}
+
+/* Ensure proper viewport handling */
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+
+/* Improve readability on high DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

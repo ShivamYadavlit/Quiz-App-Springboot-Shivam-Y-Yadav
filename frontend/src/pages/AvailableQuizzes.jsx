@@ -135,7 +135,7 @@ const AvailableQuizzes = () => {
         {/* Search and Filter Controls */}
         <div className="max-w-4xl mx-auto mb-8 animate-fade-in-up delay-300">
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-            <div className="grid md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
               
               {/* Search */}
               <div className="md:col-span-2">
@@ -190,7 +190,7 @@ const AvailableQuizzes = () => {
 
         {/* Quiz Statistics */}
         <div className="max-w-4xl mx-auto mb-8 animate-fade-in-up delay-500">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20">
               <div className="text-2xl font-bold text-white">{quizzes.length}</div>
               <div className="text-white/70 text-sm">Total Quizzes</div>
@@ -235,7 +235,7 @@ const AvailableQuizzes = () => {
             </div>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up delay-700">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 animate-fade-in-up delay-700">
             {filteredQuizzes.map((quiz, index) => (
               <div
                 key={quiz.id}

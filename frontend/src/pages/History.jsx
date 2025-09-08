@@ -168,7 +168,7 @@ const History = () => {
                 Performance Overview
               </h2>
               
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
                 <div className="text-center">
                   <div className="bg-blue-500/20 rounded-xl p-4 mb-2">
                     <i className="fas fa-clipboard-list text-3xl text-blue-400 mb-2"></i>
@@ -216,7 +216,7 @@ const History = () => {
         {/* Filters and Controls */}
         <div className="max-w-4xl mx-auto mb-8 animate-fade-in-up delay-500">
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               
               {/* Period Filter */}
               <select
@@ -297,7 +297,7 @@ const History = () => {
                     
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-white mb-2">{item.quizTitle}</h3>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
                         <div className="flex items-center text-white/70">
                           <i className="fas fa-percentage mr-2 text-green-400"></i>
                           {getScorePercentage(item.score, item.score + item.wrongAnswers)}%

@@ -21,6 +21,7 @@ import { useAuth } from './context/AuthContext.jsx';
 import './styles/tailwind.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
+import './styles/responsive.css';
 
 function AppRoutes() {
   const { isAuthenticated, loading } = useAuth();

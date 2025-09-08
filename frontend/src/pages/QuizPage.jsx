@@ -178,7 +178,7 @@ const QuizPage = () => {
               <p className="text-blue-200">{quiz?.description}</p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
               <div className="bg-white/10 rounded-lg p-4">
                 <i className="fas fa-clock text-blue-300 text-2xl mb-2"></i>
                 <p className="text-white text-sm">Duration</p>
@@ -233,7 +233,7 @@ const QuizPage = () => {
         <div className="max-w-6xl mx-auto px-4 py-4">
           {/* Top Navigation Row */}
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center space-x-2 sm:space-x-6">
+            <div className="flex items-center space-x-1 sm:space-x-4">
               <button
                 onClick={() => navigate('/dashboard')}
                 className="flex items-center px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-all duration-300 transform hover:scale-105"
@@ -394,7 +394,7 @@ const QuizPage = () => {
               <i className="fas fa-map mr-2"></i>
               Question Navigator
             </h3>
-            <div className="grid grid-cols-10 gap-2">
+            <div className="grid grid-cols-10 gap-1">
               {questions.map((_, index) => {
                 const isAnswered = answers[questions[index]?.id];
                 const isCurrent = index === currentQuestionIndex;
