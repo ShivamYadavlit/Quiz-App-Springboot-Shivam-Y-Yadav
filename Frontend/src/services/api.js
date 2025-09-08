@@ -1,8 +1,12 @@
 import axios from 'axios';
 
-// Use relative URLs since we have proxy configured in package.json
-const API_URL = '/api';
-const BASE_URL = '';
+// Use relative URLs in development, absolute URLs in production
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://quiz-app-springboot-shivam-y-yadav-3.onrender.com/api' 
+  : '/api';
+const BASE_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://quiz-app-springboot-shivam-y-yadav-3.onrender.com' 
+  : '';
 
 const api = axios.create({
   baseURL: API_URL,
