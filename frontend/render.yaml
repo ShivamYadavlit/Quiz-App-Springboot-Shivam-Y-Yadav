@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: quiz-app-frontend
+    env: static
+    buildCommand: npm run build
+    staticPublishDir: build
+    envVars:
+      - key: NODE_ENV
+        value: production

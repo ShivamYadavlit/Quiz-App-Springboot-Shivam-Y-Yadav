@@ -24,19 +24,3 @@ services:
         value: http://localhost:3000,https://quiz-app-springboot-shivam-y-yadav-3.onrender.com,https://quiz-app-frontend.onrender.com
       - key: ADMIN_SECRET_KEY
         value: YourCustomSecretKey2024!
-
-  # Frontend service
-  - type: web
-    name: quiz-app-frontend
-    runtime: docker
-    repo: https://github.com/ShivamYadavlit/Quiz-App-Springboot-Shivam-Y-Yadav.git
-    plan: free
-    region: oregon
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    startCommand: npx serve -s build -l 3000
-    envVars:
-      - key: NODE_ENV
-        value: production
-    domains:
-      - quiz-app-frontend.onrender.com
