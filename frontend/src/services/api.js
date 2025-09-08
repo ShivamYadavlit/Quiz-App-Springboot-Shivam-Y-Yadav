@@ -13,6 +13,8 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  // Add timeout to prevent hanging requests
+  timeout: 30000,
 });
 
 // Create a separate instance for public endpoints (no auth required)
@@ -21,6 +23,8 @@ const publicApi = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  // Add timeout to prevent hanging requests
+  timeout: 30000,
 });
 
 // Add request interceptor to include JWT token
@@ -65,6 +69,17 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+// Add a function to test the API connection
+export const testApiConnection = async () => {
+  try {
+    const response = await publicApi.get('/actuator/health');
+    return response.data;
+  } catch (error) {
+    console.error('API connection test failed:', error);
+    throw error;
+  }
+};
 
 // Auth API
 export const authAPI = {
