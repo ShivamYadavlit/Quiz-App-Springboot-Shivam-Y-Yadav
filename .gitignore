@@ -10,6 +10,8 @@ dist/
 
 # Environment files
 .env*.local
+.env
+.env.*
 
 # IDE and editor files
 .vscode/
@@ -32,3 +34,33 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Sensitive files
+*.env
+*environment-variables.env
+*secrets*
+config/secrets/
+secrets/
+
+# Application configuration files with sensitive data
+application-*.properties
+config/*.properties
+
+# Backup files
+*.bak
+*.backup
+
+# IDE specific files
+*.idea/
+*.vs/
+*.vscode/
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# System files
+.DS_Store
+desktop.ini

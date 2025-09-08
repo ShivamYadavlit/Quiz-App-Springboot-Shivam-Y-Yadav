@@ -35,25 +35,38 @@ build/
 ### Application Properties & Configuration ###
 # Exclude all environment-specific configuration files
 application.properties
-application-prod.properties
-application-dev.properties
-application-test.properties
-application-local.properties
+application-*.properties
+config/application*.properties
 
 # Environment variables files
 .env
-.env.local
-.env.production
-.env.development
+.env*.local
+.env.*
 
 # Database configuration
 db.properties
+database.properties
 
 # Security keys and secrets
 *.key
 *.pem
 *.p12
 *.jks
+*.secret
+*secrets*
 
 # Docker environment files
 docker-compose.override.yml
+
+# Sensitive environment files
+*environment-variables.env
+*credentials*
+*secrets*
+
+# Log files
+logs/
+*.log
+
+# Temporary files
+temp/
+tmp/

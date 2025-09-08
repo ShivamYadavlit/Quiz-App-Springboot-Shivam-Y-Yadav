@@ -24,6 +24,16 @@ This is a full-stack quiz application built using Spring Boot for the backend an
 - MongoDB as database
 - JWT for token-based authentication
 
+## Security Best Practices
+
+This application follows security best practices:
+
+1. **Environment Variables**: Sensitive data like database credentials, JWT secrets, and API keys are stored as environment variables
+2. **Gitignore**: Sensitive files are excluded from version control through comprehensive .gitignore rules
+3. **CORS Configuration**: Proper CORS settings to prevent unauthorized cross-origin requests
+4. **JWT Authentication**: Secure token-based authentication for API endpoints
+5. **Password Encryption**: User passwords are encrypted using BCrypt
+
 ## Deployment
 
 The application is deployed on Render.com with separate services for frontend and backend.
@@ -34,14 +44,18 @@ The application is deployed on Render.com with separate services for frontend an
 ## Setup Instructions
 
 1. Clone the repository
-2. Start MongoDB service
-3. Run backend:
+2. Create environment configuration files:
+   - Copy `backend/render-environment-variables.env.example` to `backend/render-environment-variables.env`
+   - Copy `backend/src/main/resources/application-prod.properties.example` to `backend/src/main/resources/application-prod.properties`
+   - Fill in your actual values in these files (never commit real credentials)
+3. Start MongoDB service
+4. Run backend:
    - Navigate to `backend/`
    - Build and run with Maven:
      ```bash
      mvn spring-boot:run
      ```
-4. Run frontend:
+5. Run frontend:
    - Navigate to `frontend/`
    - Install dependencies:
      ```bash
