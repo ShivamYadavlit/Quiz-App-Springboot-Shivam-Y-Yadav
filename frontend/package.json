@@ -11,6 +11,7 @@
     "react-scripts": "^5.0.1"
   },
   "scripts": {
+    "prebuild": "npm install react-scripts --no-save",
     "start": "npx react-scripts start",
     "build": "npx react-scripts build",
     "test": "npx react-scripts test",
