@@ -107,17 +107,19 @@ public class QuizService {
         quizResult.setQuizTotalMarks(quiz.getTotalMarks()); // Denormalized data
         quizResult.setScore(score);
         quizResult.setTotalQuestions(questions.size());
+        quizResult.setCorrectAnswers(correctAnswers);
+        quizResult.setWrongAnswers(wrongAnswers);
         quizResult.setTimeTakenSeconds(request.getTimeTakenSeconds());
         
         QuizResult savedResult = quizResultRepository.save(quizResult);
         
-        // Create user answers and calculate final score
+        // Create user answers and calculate score
         List<UserAnswer> userAnswers = new ArrayList<>();
         Map<String, String> submittedAnswers = request.getAnswers(); // Changed from Long to String
         
         for (Question question : questions) {
             UserAnswer userAnswer = new UserAnswer();
-            userAnswer.setQuizResultId(savedResult.getId()); // Set quiz result ID instead of object
+            userAnswer.setQuizResultId(savedResult.getId()); // Set quiz result ID
             userAnswer.setQuestionId(question.getId()); // Set question ID instead of object
             
             String submittedAnswer = submittedAnswers.get(question.getId());
@@ -137,14 +139,14 @@ public class QuizService {
             userAnswers.add(userAnswer);
         }
         
-        // Save all user answers
-        userAnswerRepository.saveAll(userAnswers);
-        
         // Update quiz result with final score
         savedResult.setScore(score);
         savedResult.setCorrectAnswers(correctAnswers);
         savedResult.setWrongAnswers(wrongAnswers);
         savedResult = quizResultRepository.save(savedResult);
+        
+        // Save all user answers
+        userAnswerRepository.saveAll(userAnswers);
         
         return buildQuizResultResponse(savedResult, questions, userAnswers);
     }
@@ -188,7 +190,7 @@ public class QuizService {
             history.setQuizId((String) stat.get("_id")); // MongoDB ObjectId as String
             history.setQuizTitle((String) stat.get("quizTitle"));
             history.setQuizDescription(""); // Description not available in aggregation
-            history.setTotalQuestions((Integer) stat.get("totalMarks")); // Using total marks as proxy
+            history.setTotalQuestions(((Number) stat.get("totalQuestions")).intValue()); // Fixed: was using totalMarks
             history.setAttemptCount(((Number) stat.get("attemptCount")).intValue());
             history.setBestScore(((Number) stat.get("bestScore")).intValue());
             history.setAverageScore(((Number) stat.get("averageScore")).doubleValue());

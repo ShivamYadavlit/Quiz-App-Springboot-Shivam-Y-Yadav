@@ -405,7 +405,7 @@ const AdminPanel = () => {
                                 {user.email}
                               </td>
                               <td className="border border-gray-200 px-2 sm:px-4 py-2 text-xs sm:text-sm text-center">
-                                {user.totalQuizzes || 0}
+                                {user.totalAttempts || 0}
                               </td>
                               <td className="border border-gray-200 px-2 sm:px-4 py-2 text-xs sm:text-sm text-center">
                                 {Math.round(user.averageScore || 0)}%
