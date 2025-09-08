@@ -2,7 +2,7 @@ services:
   - type: web
     name: quiz-app-frontend
     env: static
-    buildCommand: npm install react-scripts -g && npx react-scripts build
+    buildCommand: chmod +x build.sh && ./build.sh
     staticPublishDir: build
     envVars:
       - key: NODE_ENV
