@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/admin/auth")
-@CrossOrigin(origins = "*", maxAge = 3600)
 public class AdminAuthController {
     
     @Autowired
