@@ -8,12 +8,14 @@ import Quiz.App.Quiz.App.repository.QuizRepository;
 import Quiz.App.Quiz.App.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@Profile("!prod") // Only run in non-production environments
 public class DataInitializer implements CommandLineRunner {
 
     @Autowired
