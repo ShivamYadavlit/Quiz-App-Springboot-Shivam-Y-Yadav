@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "npx react-scripts start",
-    "build": "npx react-scripts build",
+    "build": "node build.js",
     "test": "npx react-scripts test",
     "eject": "npx react-scripts eject"
   },
