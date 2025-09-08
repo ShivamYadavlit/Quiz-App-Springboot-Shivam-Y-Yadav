@@ -3,10 +3,10 @@ import axios from 'axios';
 // Use relative URLs in development, absolute URLs in production
 // Make sure to update these URLs to match your actual deployed backend URL
 const API_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://quiz-app-backend.onrender.com/api' 
+  ? 'https://quiz-app-springboot-shivam-y-yadav-3.onrender.com/api' 
   : '/api';
 const BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://quiz-app-backend.onrender.com' 
+  ? 'https://quiz-app-springboot-shivam-y-yadav-3.onrender.com' 
   : '';
 
 const api = axios.create({

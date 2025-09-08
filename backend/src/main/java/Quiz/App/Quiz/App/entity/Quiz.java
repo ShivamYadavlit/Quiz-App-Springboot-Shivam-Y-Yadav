@@ -38,6 +38,11 @@ public class Quiz {
     @Field("is_active")
     private Boolean isActive = true;
     
+    // Transient field to hold questions for frontend display
+    // This field is not persisted in the database
+    @JsonIgnore
+    private List<Question> questions;
+    
     // Note: In MongoDB, we'll manage questions and results through repository queries
     // instead of direct object mapping to maintain performance
     // Questions will be stored in a separate collection with quiz_id reference

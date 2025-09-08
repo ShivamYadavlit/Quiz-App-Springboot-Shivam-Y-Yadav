@@ -41,7 +41,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             requestPath.startsWith("/api/test/") || 
             requestPath.startsWith("/api/leaderboard/") ||
             requestPath.startsWith("/leaderboard/") ||
-            requestPath.startsWith("/public/")) {
+            requestPath.startsWith("/public/") ||
+            requestPath.equals("/") ||
+            requestPath.startsWith("/actuator/")) {
             filterChain.doFilter(request, response);
             return;
         }

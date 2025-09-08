@@ -38,16 +38,44 @@ public class QuizService {
     private MongoAggregationService mongoAggregationService;
     
     public List<Quiz> getActiveQuizzes() {
-        return quizRepository.findByIsActiveTrue();
+        try {
+            List<Quiz> quizzes = quizRepository.findByIsActiveTrue();
+            // Populate questions count for each quiz
+            for (Quiz quiz : quizzes) {
+                List<Question> questions = questionRepository.findByQuizId(quiz.getId());
+                // Set questions in quiz object for frontend display
+                quiz.setQuestions(questions);
+            }
+            return quizzes;
+        } catch (Exception e) {
+            System.err.println("Error fetching active quizzes: " + e.getMessage());
+            return new ArrayList<>();
+        }
     }
     
     public List<Quiz> getAllQuizzes() {
-        return quizRepository.findAll();
+        try {
+            List<Quiz> quizzes = quizRepository.findAll();
+            // Populate questions count for each quiz
+            for (Quiz quiz : quizzes) {
+                List<Question> questions = questionRepository.findByQuizId(quiz.getId());
+                // Set questions in quiz object for frontend display
+                quiz.setQuestions(questions);
+            }
+            return quizzes;
+        } catch (Exception e) {
+            System.err.println("Error fetching all quizzes: " + e.getMessage());
+            return new ArrayList<>();
+        }
     }
     
     public Quiz getQuizById(String id) {
-        return quizRepository.findById(id)
+        Quiz quiz = quizRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Quiz not found"));
+        // Populate questions for the quiz
+        List<Question> questions = questionRepository.findByQuizId(quiz.getId());
+        quiz.setQuestions(questions);
+        return quiz;
     }
     
     public List<Question> getQuizQuestions(String quizId) {

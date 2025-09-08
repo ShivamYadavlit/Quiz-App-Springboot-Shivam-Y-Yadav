@@ -18,7 +18,7 @@ This is a full-stack quiz application built using Spring Boot for the backend an
 - Axios for API calls
 
 ### Backend
-- Spring Boot (Java 11+)
+- Spring Boot (Java 21)
 - Spring Security for authentication
 - Spring Data MongoDB
 - MongoDB as database
@@ -54,12 +54,56 @@ The application is deployed on Render.com with separate services for frontend an
 
 ## Build & Deployment
 
-- Backend:
-  ```bash
-  mvn clean package
-  java -jar target/quiz-app.jar
-  ```
-- Frontend:
-  ```bash
-  npm run build
-  ```
+### Manual Deployment
+
+1. Make sure all changes are committed:
+   ```bash
+   git add .
+   git commit -m "Deployment update"
+   git push origin main
+   ```
+
+2. Or use the deployment scripts:
+   - On Windows: Run `deploy.ps1`
+   - On Mac/Linux: Run `deploy.sh`
+
+### Backend Deployment
+```bash
+mvn clean package
+java -jar target/Quiz-App-0.0.1-SNAPSHOT.jar
+```
+
+### Frontend Deployment
+```bash
+npm run build
+```
+
+### Automatic Deployment
+The application is configured for automatic deployment on Render.com. Any changes pushed to the main branch will trigger automatic redeployment.
+
+## Environment Variables
+
+### Backend
+- `MONGODB_URI`: MongoDB connection string
+- `JWT_SECRET`: Secret key for JWT token generation
+- `CORS_ALLOWED_ORIGINS`: Comma-separated list of allowed origins
+
+### Frontend
+- `NODE_ENV`: Set to "production" for production builds
+
+## API Documentation
+
+The backend API is organized into several controllers:
+- Public API: `/public/**` (no authentication required)
+- Auth API: `/api/auth/**` (authentication endpoints)
+- Quiz API: `/api/quiz/**` (quiz-related endpoints)
+- Admin API: `/api/admin/**` (admin-only endpoints)
+- Leaderboard API: `/leaderboard/**` (public leaderboard endpoints)
+
+## Troubleshooting
+
+If you encounter issues with data not showing:
+1. Check the browser console for API errors
+2. Verify the backend is running and accessible
+3. Check MongoDB connection
+4. Ensure CORS is properly configured
