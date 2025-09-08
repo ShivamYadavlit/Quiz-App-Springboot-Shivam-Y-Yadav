@@ -2,7 +2,7 @@ services:
   - type: web
     name: quiz-app-frontend
     env: static
-    buildCommand: npm install && npm run build
+    buildCommand: npm ci && npm run build
     staticPublishDir: build
     envVars:
       - key: NODE_ENV
