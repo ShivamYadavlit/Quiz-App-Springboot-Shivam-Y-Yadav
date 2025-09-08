@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: quiz-app-frontend
-    env: static
-    buildCommand: chmod +x build.sh && ./build.sh
-    staticPublishDir: build
-    envVars:
-      - key: NODE_ENV
-        value: production
